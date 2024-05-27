@@ -1,0 +1,42 @@
+general:
+  path: ./
+  prefix: stripped_c01
+  iter: i01
+  primary_obs: data/stripped_c01_RVs.dat
+  secondary_obs: None
+  chains: 2
+  cores: 4
+  draws: 1000
+  tune: 1000
+  target: 0.97
+  type: rv
+  ecc_type: circular
+varpars:
+  Period:
+    prior: Uniform
+    transform: log
+    kwargs:
+      lower: 1.
+      upper: 5.
+      testval: 2.32
+  Gamma:
+    prior: Uniform
+    transform: None
+    kwargs:
+      testval: 12.
+      lower: -100.
+      upper: 100.
+  K1:
+    prior: Uniform
+    transform: log
+    kwargs:
+      testval: 68.5
+      lower: 30.
+      upper: 90.
+priors:
+  ecc:
+    mu: 0.
+    sigma: 0.0001
+  omega:
+    mu: 3.14
+    sigma: 0.1

@@ -1,0 +1,42 @@
+general:
+  path: ./
+  prefix: hd165246
+  iter: i01
+  primary_obs: data/hd165246_lsdRVs.txt
+  secondary_obs: None
+  chains: 2
+  cores: 4
+  draws: 1000
+  tune: 1000
+  target: 0.97
+  type: rv
+  ecc_type: small
+varpars:
+  Period:
+    prior: Normal
+    transform: None
+    kwargs:
+      testval: 4.592834
+      mu: 4.593
+      sigma: 0.01
+  Gamma:
+    prior: Uniform
+    transform: None
+    kwargs:
+      testval: -10.
+      lower: -200.
+      upper: 200.
+  K1:
+    prior: Uniform
+    transform: log
+    kwargs:
+      testval: 60.
+      lower: 1.
+      upper: 400
+priors:
+  ecc:
+    mean: 0.
+    std: 0.4
+  omega:
+    mean: 3.14
+    std: 0.1

@@ -1,0 +1,49 @@
+general:
+  path: ./
+  prefix: hd46052
+  iter: i01
+  primary_obs: data/hd_46052_RV_c1.dat
+  secondary_obs: data/hd_46052_RV_c2.dat
+  chains: 2
+  cores: 4
+  draws: 1000
+  tune: 1000
+  target: 0.97
+  type: rv
+  ecc_type: small
+varpars:
+  Period:
+    prior: Normal
+    transform: None
+    kwargs:
+      testval: 2.525
+      mu: 2.525
+      sigma: 0.2
+  Gamma:
+    prior: Uniform
+    transform: None
+    kwargs:
+      testval: -0.
+      lower: -200.
+      upper: 200.
+  K1:
+    prior: Uniform
+    transform: log
+    kwargs:
+      testval: 120.
+      lower: 1.
+      upper: 400
+  K2:
+    prior: Uniform
+    transform: log
+    kwargs:
+      testval: 120.
+      lower: 1.
+      upper: 400
+priors:
+  ecc:
+    mean: 0.
+    std: 0.4
+  omega:
+    mean: 3.14
+    std: 0.1

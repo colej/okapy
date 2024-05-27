@@ -1,0 +1,49 @@
+general:
+  path: ./
+  prefix: v1216Sco
+  iter: i01
+  primary_obs: data/v1216_Sco_primary_rv.dat
+  secondary_obs: data/v1216_Sco_secondary_rv.dat
+  chains: 2
+  cores: 4
+  draws: 1000
+  tune: 1000
+  target: 0.97
+  type: rv
+  ecc_type: small
+varpars:
+  Period:
+    prior: Normal
+    transform: None
+    kwargs:
+      testval: 3.9207
+      mu: 3.9207
+      sigma: 0.01
+  Gamma:
+    prior: Uniform
+    transform: None
+    kwargs:
+      testval: -21.
+      lower: -200.
+      upper: 200.
+  K1:
+    prior: Uniform
+    transform: log
+    kwargs:
+      testval: 60.
+      lower: 1.
+      upper: 400
+  K2:
+    prior: Uniform
+    transform: log
+    kwargs:
+      testval: 100.
+      lower: 1.
+      upper: 400
+priors:
+  ecc:
+    mean: 0.
+    std: 0.4
+  omega:
+    mean: 3.14
+    std: 0.1

@@ -1,0 +1,49 @@
+general:
+  path: ./
+  prefix: hd116608
+  iter: i01
+  primary_obs: data/hd_116608_RV_c1.dat
+  secondary_obs: data/hd_116608_RV_c2.dat
+  chains: 2
+  cores: 4
+  draws: 1000
+  tune: 1000
+  target: 0.97
+  type: rv
+  ecc_type: circular
+varpars:
+  Period:
+    prior: Uniform
+    transform: log
+    kwargs:
+      testval: 0.796
+      upper: 0.9
+      lower: 0.6
+  Gamma:
+    prior: Uniform
+    transform: None
+    kwargs:
+      testval: -49.
+      lower: -200.
+      upper: 200.
+  K1:
+    prior: Uniform
+    transform: log
+    kwargs:
+      testval: 30.
+      lower: 1.
+      upper: 400
+  K2:
+    prior: Uniform
+    transform: log
+    kwargs:
+      testval: 239.
+      lower: 1.
+      upper: 400
+priors:
+  ecc:
+    mu: 0.
+    sigma: 0.4
+  omega:
+    mu: 0.1
+    sigma: 0.1
